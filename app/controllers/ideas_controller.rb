@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]  #This calls set_idea method before running show,edit,update or destroy methods. This prevents repetition, because set_idea declares instance variable @idea = Idea.find(params[:id]).
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy] #Checks that user needs to be authenticated to access new,edit,create,update and destroy methods
 
-  
+
   # GET /ideas
   # GET /ideas.json
   def index
@@ -67,6 +67,7 @@ class IdeasController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
       @idea = Idea.find(params[:id])
+      @tags = @idea.tags
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
