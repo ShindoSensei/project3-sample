@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+harry_potter:
+  name: "Harry Potter and the Chamber"
+  author: jk_rowling
+
+harry_potter2:
+  name: "Harry Potter and the Azkaban"
+  author: jk_rowling
+
+LOTR:
+  name: "LOTR"
+  author: tolkien
+
+new_book:
+  name: ''
+  author: tolkien

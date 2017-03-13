@@ -3,3 +3,19 @@
   <!--Show this if authenticated  -->
   <p>Welcome to the app <%= current_user.email%></p>
 <%end%>
+<p id="plot">Ajax content here</p>
+<button id="button" class="btn btn-primary" name="button">AJAX</button>
+<button class="btn btn-primary ujs" data-remote= "true" data-method="get" data-url="http://www.omdbapi.com/?t=logan" name="button">Logan</button>
+<button class="btn btn-primary ujs" data-remote= "true" data-method="get" data-url="http://www.omdbapi.com/?t=king+kong" name="button">King Kong</button>
+<button class="btn btn-primary ujs" data-remote= "true" data-method="get" data-url="http://www.omdbapi.com/?t=narnia" name="button">Narnia</button>
+
+<br><br>
+
+<input id="inputText" type="text" name="grabThis">
+<p id="displayAPI">Display here</p>
+<button id="grabThis" class="btn btn-primary" name="button">Yodify text</button>
+<br><br>
+
+<p id="displayQuote">Display Quote here</p>
+<button id="quoteBtn" class="btn btn-primary" name="button">Get Quote</button>
+<button id="stopQuote" class="btn btn-primary" name="button">Stop Quote</button>

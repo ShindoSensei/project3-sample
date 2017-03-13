@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+jk_rowling:
+  name: 'JK Rowling'
+  publisher: penguin
+
+tolkien:
+  name: 'JR Tolkien'
+  publisher: penguin
+
+new_author:
+  name: ''

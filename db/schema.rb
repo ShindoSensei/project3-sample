@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308070643) do
+ActiveRecord::Schema.define(version: 20170309073628) do
+
+  create_table "authors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "publisher_id"
+    t.index ["publisher_id"], name: "index_authors_on_publisher_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -20,6 +36,23 @@ ActiveRecord::Schema.define(version: 20170308070643) do
     t.datetime "updated_at", null: false
     t.index ["idea_id"], name: "index_comments_on_idea_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "fans", force: :cascade do |t|
+    t.string   "name"
+    t.string   "relationship_type"
+    t.integer  "relationship_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["relationship_type", "relationship_id"], name: "index_fans_on_relationship_type_and_relationship_id"
+  end
+
+  create_table "ga_users", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_ga_users_on_teacher_id"
   end
 
   create_table "ideas", force: :cascade do |t|
@@ -35,9 +68,42 @@ ActiveRecord::Schema.define(version: 20170308070643) do
     t.integer "tag_id",  null: false
   end
 
+  create_table "players", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "publishers", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stalks", force: :cascade do |t|
+    t.integer  "stalker_id"
+    t.integer  "stalkee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stalkee_id"], name: "index_stalks_on_stalkee_id"
+    t.index ["stalker_id"], name: "index_stalks_on_stalker_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "twitter_users", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

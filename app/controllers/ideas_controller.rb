@@ -12,6 +12,10 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json {render json: @idea}
+    end
   end
 
   # GET /ideas/new
